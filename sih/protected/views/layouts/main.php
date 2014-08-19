@@ -22,85 +22,78 @@
 <body>
 
 	<nav id="menuprincipal">
-
-
-	<?php if(!Yii::app()->user->isGuest){ ?>
-
 	<span class="menuitem">
-		<a href="#">sistema</a>
-		<span class="submenu">
-			<?php echo CHtml::link('Áreas y puestos',array('areas/admin')); ?>
-			<?php echo CHtml::link('Gestión Empleados',array('personas/admin')); ?>
-			<?php echo CHtml::link('Gestión Usuarios',array('usuarios/admin')); ?>
+	
+	<?php 	if(!Yii::app()->user->isGuest)
+			{?>
+			<a href="#">incidencias</a>
+			<span class="submenu">
+				<a href="#"> Mis incidencias</a>
+				<a href="#"> Crear</a><br>
+				<a href="#"> Ver</a><br>
+				<?php }?>
 		</span>
-	</span>
+		</span>
+		<span class="menuitem">
+			<?php 	if(!Yii::app()->user->isGuest){
 
-	<span class="menuitem">
-		<a href="#">inventario</a>
+			?>
+				<a href="#">reportes</a>
+			<span class="submenu">
+				<a href="#"> Totales</a><br>
+				<a href="#"> inventario</a><br>
+				<a href="#"> entradas</a>
+			<?php }?>
+		</span>
+		</span>
+		<span class="menuitem">
+			<?php 	if(!Yii::app()->user->isGuest)
+
+			{?>
+	<a href="#">inventario</a>
 		<span class="submenu">
 			<a href="#"> revisar</a><br>
 			<a href="#"> gestionar</a><br>
 			<a href="#"> crear</a>
+			<?php }?>
 		</span>
-	</span>
-	<span class="menuitem">
-		<a href="#">administración</a>
-		<span class="submenu">
-			<a href="#"> Personal</a><br>
-			<a href="#"> Crear</a><br>
-			<a href="#"> Buscar</a>
-			<a href="#"> Personal</a><br>
-			<a href="#"> Crear</a><br>
-			<a href="#"> Buscar</a>
-			<a href="#"> Personal</a><br>
-			<a href="#"> Crear</a><br>
-			<a href="#"> Crear</a><br>
-
 		</span>
-	</span>
-	<span class="menuitem">
-		<a href="#">reportes</a>
-		<span class="submenu">
-			<a href="#"> Totales</a><br>
-			<a href="#"> inventario</a><br>
-			<a href="#"> entradas</a>
-		</span>
-	</span>	
-	<span class="menuitem">
-		<a href="#">incidencias</a>
-		<span class="submenu">
-			<a href="#"> Mis incidencias</a>
-			<a href="#"> Crear</a><br>
-			<a href="#"> Ver</a><br>
-		</span>
-	</span>
-	<span class="menuitem">
-		<?php echo CHtml::link('CERRAR sesión',array('site/logout')); ?>
-	</span>
-		<?php } ?>
-
-	<?php if(Yii::app()->user->isGuest){ ?>
 		<span class="menuitem">
-			<?php echo CHtml::link('Iniciar sesión',array('site/login')); ?>
-		</span>
-	<?php } ?>
+			<?php 	if(!Yii::app()->user->isGuest){?>
+						
+			<a href="#">administración</a>
+			<span class="submenu">
+			<a href="#"> Personal</a><br>
+			<a href="#"> Crear</a><br>
+			<a href="#"> Buscar</a>
+			<?php }?>
 
-	<span class="menuitem">
-		<?php echo CHtml::link('inicio',array('site/index')); ?>
+		</span>
 	</span>
+	<span class="menuitem"> 
+		<?php echo CHtml::link('Inicio',array('/')); ?> </span> 
+	</span>
+			<?php if(Yii::app()->user->isGuest){ ?> 
+	<span class="menuitem"> 
+		<?php echo CHtml::link('Iniciar sesión',array('site/login')); ?> </span> 
+		<?php } ?>
+	</span>
+	<span class="menuitem">
+	<?php if(!Yii::app()->user->isGuest){ ?>
+		<?php echo CHtml::link('Cerrar Sesiòn',array('site/logout')); ?> </span> 
+		<?php } ?>
+	</span>
+	
 
 </nav>
 	
 <header>
 <span id="logo">
-	<img src="images/siloelogo.png" style="width:100%;height:auto;margin-top:15px;">
+	<img src="images/logo1.png" style="width:100%;height:auto;margin-right:5px; ">
 </span>
 <span id="titulos">
 	<span id="titulo">HOSPITAL SILOÉ</span>
 	<span id="subtitulo"> GESTIÓN INTEGRAL HOSPITALARIA</span>
-	<?php if(!Yii::app()->user->isGuest){ ?>
-		<span id="loginfo"> BIENVENIDO ISMAEL GONZALEZ (ADMINISTRADOR)</span>
-	<?php } ?>
 </span>
 </header>
 <main>

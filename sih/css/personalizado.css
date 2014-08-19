@@ -8,7 +8,6 @@
 	*{
 		box-sizing:border-box;
 	}
-
 	body{
 		margin:0;
 		padding:0;
@@ -20,9 +19,9 @@
 	}
 	header{
 		width:100%;
-		height:170px;
+		height:200px;
 		background-color:#65A8A1;
-		padding:10px 30px 20px 30px;
+		padding:10px 30px 20px 0px;
 		color: white;
 		font-size: 3em;
 	}
@@ -44,7 +43,7 @@
 		font-weight: bold;
 		min-width: 100px;
 		text-align: center;
-		margin:0 5px;
+		margin:5px 5px;
 
 	}
 	.menuitem:hover{
@@ -56,34 +55,32 @@
 		padding:20px 30px;
 	}
 
-	#titulo, #subtitulo,#loginfo{
+	#titulo, #subtitulo{
 		display:table-row;
 	}
 	#subtitulo{
-		font-size:.46em;
-		text-align: justify;
-		
-	}
-	#logo{
-		display:inline-block;
-		border:0px solid red;
-		height:100%;
-		width:150px;
-		float:left;
-		background-color: white;
-		border-radius: 3px;
-	}
-	#loginfo{
-		font-size:.3em;
+	font-size:.46em;
 	text-align: justify;
-	}
 
-	#titulos{
-		margin-top: 45px;
-		border:0px solid black;
-		float:left;
-		margin-left:10px;
-	}
+}
+#logo{
+	
+	/*display:inline-block;*/
+	border:0px solid red;
+	height:95%;
+	width:150px;
+	float:left;
+	background-color: #65A8A1;
+	border-radius: 3px;
+}
+
+#titulos{
+
+	
+	border:0px solid black;
+	float:left;
+	margin-left:0px;
+}
 .submenu{
 	
 	font-size: .8em;
@@ -118,10 +115,8 @@
 	color:#E1EDE9;
 }
 
-.boton{
-	cursor: pointer;
-	width:15px;
-	height:auto;
-	margin:0 3px;
-}
+#InicioSesion{
+	border:3px solid red;
+	text-align:center;
 
+}
