@@ -7,8 +7,9 @@
 // CWebApplication properties can be configured here.
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
-	'name'=>'Hospital Siloe   Gestion ',
+	'name'=>'My Web Application',
 	'timeZone' => 'America/Mexico_City',
+	'language' => 'es',
 	// preloading 'log' component
 	'preload'=>array('log'),
 
@@ -23,9 +24,9 @@ return array(
 		
 		'gii'=>array(
 			'class'=>'system.gii.GiiModule',
-			'password'=>'fix',
+			'password'=>'sih',
 			// If removed, Gii defaults to localhost only. Edit carefully to taste.
-			'ipFilters'=>array('127.0.0.1'),
+			'ipFilters'=>array('127.0.0.1','::1'),
 		),
 		
 	),
@@ -46,17 +47,16 @@ return array(
 				'<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
 			),
 		),
-		*/
+		
 		'db'=>array(
 			'connectionString' => 'sqlite:'.dirname(__FILE__).'/../data/testdrive.db',
-		),
+		),*/
 		// uncomment the following to use a MySQL database
-		
 		'db'=>array(
 			'connectionString' => 'mysql:host=localhost;dbname=sih',
 			'emulatePrepare' => true,
 			'username' => 'root',
-			'password' => 'systemkorp2348',
+			'password' => '',
 			'charset' => 'utf8',
 		),
 		
@@ -85,6 +85,6 @@ return array(
 	// using Yii::app()->params['paramName']
 	'params'=>array(
 		// this is used in contact page
-		'adminEmail'=>'macrobit-soft@gmail.com',
+		'adminEmail'=>'webmaster@example.com',
 	),
 );
