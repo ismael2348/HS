@@ -34,15 +34,15 @@
 		/*background-color:#E1EAFF;*/
 	}
 	.menuitem{
-
+		border:0px solid red;
 		position:relative;
-		padding:5px 10px;
+		padding:5px 5px;
 		text-transform: uppercase;
 		color: #E1EDE9;
 		float:right;
 		text-decoration: none;
 		font-weight: bold;
-		min-width: 100px;
+		min-width: 140px;
 		text-align: center;
 		margin:0 5px;
 
@@ -114,6 +114,12 @@
 	border-left:2px solid #4B827B;
 	color:white;
 }
+
+.misistemas:hover{
+background-color:#65A8A1;
+
+}
+
 .submenu a:hover{
 	padding-left:10px;
 	border-left:0px solid #4B827B;
@@ -131,3 +137,27 @@
 	margin:0 3px;
 }
 
+input, select, textarea{
+	width:300px;
+}
+
+input[type="submit"]{
+	width:150px;
+}
+
+input[type="checkbox"]{
+	width:20px;
+}
+
+.row{
+
+	font-weight: bold;
+	line-height: 18px;
+
+}
+
+.divisor{
+	border:0px solid red;
+	margin-right:20px;
+	float:left;
+}

@@ -6,16 +6,18 @@
  * The followings are the available columns in table 'usuarios':
  * @property integer $id
  * @property integer $id_rol
+ * @property integer $id_persona
  * @property string $usuario
  * @property string $contrasena
  * @property string $fecha_registro
  * @property string $fecha_expiracion
- * @property integer $estatus
+ * @property integer $activo
  *
  * The followings are the available model relations:
  * @property Incidentes[] $incidentes
  * @property IncidentesSeguim[] $incidentesSeguims
  * @property Roles $idRol
+ * @property Personas $idPersona
  */
 class Usuarios extends CActiveRecord
 {
@@ -35,14 +37,14 @@ class Usuarios extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('id_rol', 'required'),
-			array('id_rol, estatus', 'numerical', 'integerOnly'=>true),
+			array('id_rol, id_persona, usuario, contrasena, fecha_registro', 'required'),
+			array('id_rol, id_persona, activo', 'numerical', 'integerOnly'=>true),
 			array('usuario', 'length', 'max'=>100),
 			array('contrasena', 'length', 'max'=>250),
-			array('fecha_registro, fecha_expiracion', 'safe'),
+			array('fecha_expiracion', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, id_rol, usuario, contrasena, fecha_registro, fecha_expiracion, estatus', 'safe', 'on'=>'search'),
+			array('id, id_rol, id_persona, usuario, contrasena, fecha_registro, fecha_expiracion, activo', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -57,6 +59,7 @@ class Usuarios extends CActiveRecord
 			'incidentes' => array(self::HAS_MANY, 'Incidentes', 'de_id_usuario'),
 			'incidentesSeguims' => array(self::HAS_MANY, 'IncidentesSeguim', 'id_usuario'),
 			'idRol' => array(self::BELONGS_TO, 'Roles', 'id_rol'),
+			'idPersona' => array(self::BELONGS_TO, 'Personas', 'id_persona'),
 		);
 	}
 
@@ -68,11 +71,12 @@ class Usuarios extends CActiveRecord
 		return array(
 			'id' => 'ID',
 			'id_rol' => 'Id Rol',
+			'id_persona' => 'Id Persona',
 			'usuario' => 'Usuario',
 			'contrasena' => 'Contrasena',
 			'fecha_registro' => 'Fecha Registro',
 			'fecha_expiracion' => 'Fecha Expiracion',
-			'estatus' => 'Estatus',
+			'activo' => 'Activo',
 		);
 	}
 
@@ -96,11 +100,12 @@ class Usuarios extends CActiveRecord
 
 		$criteria->compare('id',$this->id);
 		$criteria->compare('id_rol',$this->id_rol);
+		$criteria->compare('id_persona',$this->id_persona);
 		$criteria->compare('usuario',$this->usuario,true);
 		$criteria->compare('contrasena',$this->contrasena,true);
 		$criteria->compare('fecha_registro',$this->fecha_registro,true);
 		$criteria->compare('fecha_expiracion',$this->fecha_expiracion,true);
-		$criteria->compare('estatus',$this->estatus);
+		$criteria->compare('activo',$this->activo);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

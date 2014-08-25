@@ -17,8 +17,8 @@
 	<?php echo CHtml::encode($data->id_puesto); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('estatus')); ?>:</b>
-	<?php echo CHtml::encode($data->estatus); ?>
+	<b><?php echo CHtml::encode($data->getAttributeLabel('activo')); ?>:</b>
+	<?php echo CHtml::encode($data->activo); ?>
 	<br />
 
 

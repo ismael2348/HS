@@ -19,22 +19,11 @@
 
 	<?php echo $form->errorSummary($model); ?>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'id_area'); ?>
-		<?php echo $form->textField($model,'id_area'); ?>
-		<?php echo $form->error($model,'id_area'); ?>
-	</div>
+<!--<input name="AreasPuestos[id_area]" id="AreasPuestos_id_area" type="hidden" value="<?php //echo $_GET["id"]; ?>">-->
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'id_puesto'); ?>
-		<?php echo $form->textField($model,'id_puesto'); ?>
-		<?php echo $form->error($model,'id_puesto'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'estatus'); ?>
-		<?php echo $form->textField($model,'estatus'); ?>
-		<?php echo $form->error($model,'estatus'); ?>
+	Nombre del puesto:<br>
+	<input size="60" maxlength="250" name="Puestos[nombre]" id="Puestos_nombre" type="text">
 	</div>
 
 	<div class="row buttons">

@@ -17,12 +17,45 @@
 
 	<p class="note">Fields with <span class="required">*</span> are required.</p>
 
-	<?php echo $form->errorSummary($model); ?>
+	<?php echo $form->errorSummary($model); 
+
+
+
+
+
+$this->widget('ext.MyAutoComplete', array(
+    'model'=>$model,
+    'attribute'=>'id_persona',
+    'name'=>'persona_autocomplete',
+    //'id'=>'Peticiones_para',
+    'source'=>$this->createUrl('personas/obtenerPersonas'),  // Controller/Action path for action we created in step 4.
+    // additional javascript options for the autocomplete plugin
+    'options'=>array(
+        'minLength'=>'0',
+    ),
+
+	));
+
+
+
+
+
+	?>
+
+
+
+
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'id_rol'); ?>
 		<?php echo $form->textField($model,'id_rol'); ?>
 		<?php echo $form->error($model,'id_rol'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->labelEx($model,'id_persona'); ?>
+		<?php echo $form->textField($model,'id_persona'); ?>
+		<?php echo $form->error($model,'id_persona'); ?>
 	</div>
 
 	<div class="row">
@@ -50,9 +83,9 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'estatus'); ?>
-		<?php echo $form->textField($model,'estatus'); ?>
-		<?php echo $form->error($model,'estatus'); ?>
+		<?php echo $form->labelEx($model,'activo'); ?>
+		<?php echo $form->textField($model,'activo'); ?>
+		<?php echo $form->error($model,'activo'); ?>
 	</div>
 
 	<div class="row buttons">

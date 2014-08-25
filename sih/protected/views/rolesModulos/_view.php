@@ -17,8 +17,12 @@
 	<?php echo CHtml::encode($data->id_modulo); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('estatus')); ?>:</b>
-	<?php echo CHtml::encode($data->estatus); ?>
+	<b><?php echo CHtml::encode($data->getAttributeLabel('activo')); ?>:</b>
+	<?php echo CHtml::encode($data->activo); ?>
+	<br />
+
+	<b><?php echo CHtml::encode($data->getAttributeLabel('permisos')); ?>:</b>
+	<?php echo CHtml::encode($data->permisos); ?>
 	<br />
 
 

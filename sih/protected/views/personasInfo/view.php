@@ -34,6 +34,6 @@ $this->menu=array(
 		'telefono2',
 		'celular',
 		'celular2',
-		'estatus',
+		'activo',
 	),
 )); ?>

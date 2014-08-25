@@ -6,7 +6,7 @@
  * The followings are the available columns in table 'roles':
  * @property integer $id
  * @property string $nombre
- * @property integer $estatus
+ * @property integer $activo
  *
  * The followings are the available model relations:
  * @property RolesModulos[] $rolesModuloses
@@ -30,11 +30,12 @@ class Roles extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('estatus', 'numerical', 'integerOnly'=>true),
+			array('nombre', 'required'),
+			array('activo', 'numerical', 'integerOnly'=>true),
 			array('nombre', 'length', 'max'=>250),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, nombre, estatus', 'safe', 'on'=>'search'),
+			array('id, nombre, activo', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -59,7 +60,7 @@ class Roles extends CActiveRecord
 		return array(
 			'id' => 'ID',
 			'nombre' => 'Nombre',
-			'estatus' => 'Estatus',
+			'activo' => 'Activo',
 		);
 	}
 
@@ -83,7 +84,7 @@ class Roles extends CActiveRecord
 
 		$criteria->compare('id',$this->id);
 		$criteria->compare('nombre',$this->nombre,true);
-		$criteria->compare('estatus',$this->estatus);
+		$criteria->compare('activo',$this->activo);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

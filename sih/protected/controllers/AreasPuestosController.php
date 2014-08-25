@@ -60,22 +60,31 @@ class AreasPuestosController extends Controller
 	 * Creates a new model.
 	 * If creation is successful, the browser will be redirected to the 'view' page.
 	 */
-	public function actionCreate()
+	public function actionCreate($id)
 	{
 		$model=new AreasPuestos;
+		$puestos =new Puestos;
+		$model->id_area = strip_tags(trim((int)$id));
+		$areaNombre = Areas::model()->findByPk($model->id_area)->nombre;
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['AreasPuestos']))
+		if(isset($_POST['Puestos']))
 		{
-			$model->attributes=$_POST['AreasPuestos'];
+
+			$puestos->nombre = $_POST['Puestos']["nombre"];
+			$puestos->save();
+			
+
+			//$model->attributes=$_POST['AreasPuestos'];
+			$model->id_puesto = $puestos->id;
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+				$this->redirect(array('areas/admin'));
 		}
 
 		$this->render('create',array(
-			'model'=>$model,
+			'model'=>$model, 'puestos'=>$puestos, 'areaNombre'=>$areaNombre
 		));
 	}
 

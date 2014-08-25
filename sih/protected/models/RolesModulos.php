@@ -7,7 +7,8 @@
  * @property integer $id
  * @property integer $id_rol
  * @property integer $id_modulo
- * @property integer $estatus
+ * @property integer $activo
+ * @property integer $permisos
  *
  * The followings are the available model relations:
  * @property Roles $idRol
@@ -32,10 +33,10 @@ class RolesModulos extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('id_rol, id_modulo', 'required'),
-			array('id_rol, id_modulo, estatus', 'numerical', 'integerOnly'=>true),
+			array('id_rol, id_modulo, activo, permisos', 'numerical', 'integerOnly'=>true),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, id_rol, id_modulo, estatus', 'safe', 'on'=>'search'),
+			array('id, id_rol, id_modulo, activo, permisos', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -61,7 +62,8 @@ class RolesModulos extends CActiveRecord
 			'id' => 'ID',
 			'id_rol' => 'Id Rol',
 			'id_modulo' => 'Id Modulo',
-			'estatus' => 'Estatus',
+			'activo' => 'Activo',
+			'permisos' => 'Permisos',
 		);
 	}
 
@@ -86,7 +88,8 @@ class RolesModulos extends CActiveRecord
 		$criteria->compare('id',$this->id);
 		$criteria->compare('id_rol',$this->id_rol);
 		$criteria->compare('id_modulo',$this->id_modulo);
-		$criteria->compare('estatus',$this->estatus);
+		$criteria->compare('activo',$this->activo);
+		$criteria->compare('permisos',$this->permisos);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

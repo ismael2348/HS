@@ -24,6 +24,7 @@ $this->menu=array(
 		'id',
 		'id_rol',
 		'id_modulo',
-		'estatus',
+		'activo',
+		'permisos',
 	),
 )); ?>

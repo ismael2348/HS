@@ -48,7 +48,8 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		'id',
 		'id_rol',
 		'id_modulo',
-		'estatus',
+		'activo',
+		'permisos',
 		array(
 			'class'=>'CButtonColumn',
 		),

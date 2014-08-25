@@ -33,6 +33,10 @@
 	<?php echo CHtml::encode($data->rfc); ?>
 	<br />
 
+		<b><?php echo CHtml::encode($data->getAttributeLabel('email')); ?>:</b>
+	<?php echo CHtml::encode($data->email); ?>
+	<br />
+
 	<?php /*
 	<b><?php echo CHtml::encode($data->getAttributeLabel('curp')); ?>:</b>
 	<?php echo CHtml::encode($data->curp); ?>
@@ -70,8 +74,8 @@
 	<?php echo CHtml::encode($data->id_turno); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('estatus')); ?>:</b>
-	<?php echo CHtml::encode($data->estatus); ?>
+	<b><?php echo CHtml::encode($data->getAttributeLabel('activo')); ?>:</b>
+	<?php echo CHtml::encode($data->activo); ?>
 	<br />
 
 	*/ ?>

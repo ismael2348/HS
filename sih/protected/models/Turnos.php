@@ -8,7 +8,7 @@
  * @property string $nombre
  * @property string $horaentrada
  * @property string $horasalida
- * @property integer $estatus
+ * @property integer $activo
  *
  * The followings are the available model relations:
  * @property Personas[] $personases
@@ -31,12 +31,12 @@ class Turnos extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('estatus', 'numerical', 'integerOnly'=>true),
+			array('nombre, horaentrada, horasalida', 'required'),
+			array('activo', 'numerical', 'integerOnly'=>true),
 			array('nombre', 'length', 'max'=>150),
-			array('horaentrada, horasalida', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, nombre, horaentrada, horasalida, estatus', 'safe', 'on'=>'search'),
+			array('id, nombre, horaentrada, horasalida, activo', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -62,7 +62,7 @@ class Turnos extends CActiveRecord
 			'nombre' => 'Nombre',
 			'horaentrada' => 'Horaentrada',
 			'horasalida' => 'Horasalida',
-			'estatus' => 'Estatus',
+			'activo' => 'Activo',
 		);
 	}
 
@@ -88,7 +88,7 @@ class Turnos extends CActiveRecord
 		$criteria->compare('nombre',$this->nombre,true);
 		$criteria->compare('horaentrada',$this->horaentrada,true);
 		$criteria->compare('horasalida',$this->horasalida,true);
-		$criteria->compare('estatus',$this->estatus);
+		$criteria->compare('activo',$this->activo);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

@@ -23,10 +23,11 @@ $this->menu=array(
 	'attributes'=>array(
 		'id',
 		'id_rol',
+		'id_persona',
 		'usuario',
 		'contrasena',
 		'fecha_registro',
 		'fecha_expiracion',
-		'estatus',
+		'activo',
 	),
 )); ?>

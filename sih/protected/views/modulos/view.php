@@ -23,6 +23,6 @@ $this->menu=array(
 	'attributes'=>array(
 		'id',
 		'nombre',
-		'estatus',
+		'activo',
 	),
 )); ?>

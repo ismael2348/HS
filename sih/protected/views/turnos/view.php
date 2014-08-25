@@ -25,6 +25,6 @@ $this->menu=array(
 		'nombre',
 		'horaentrada',
 		'horasalida',
-		'estatus',
+		'activo',
 	),
 )); ?>

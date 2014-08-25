@@ -26,12 +26,24 @@
 
 	<?php if(!Yii::app()->user->isGuest){ ?>
 
-	<span class="menuitem">
+	<span class="menuitem ">
 		<a href="#">sistema</a>
-		<span class="submenu">
-			<?php echo CHtml::link('Áreas y puestos',array('areas/admin')); ?>
-			<?php echo CHtml::link('Gestión Empleados',array('personas/admin')); ?>
-			<?php echo CHtml::link('Gestión Usuarios',array('usuarios/admin')); ?>
+		<span class="submenu misistemas">
+			
+			<?php echo CHtml::link('Gestión de Usuarios',array('usuarios/admin')); ?>
+			<?php echo CHtml::link('Gestión de Roles',array('roles/admin')); ?>
+			<?php echo CHtml::link('Gestión de Modulos',array('modulos/admin')); ?>
+
+			<?php echo CHtml::link('IPS',array('inventIp/admin')); ?>
+			<?php echo CHtml::link('Extenciones',array('inventExtensiones/admin')); ?>
+			<?php echo CHtml::link('-------------------',array('#')); ?>
+			<?php echo CHtml::link('Categorias',array('artCategorias/admin')); ?>
+			<?php echo CHtml::link('Articulos',array('articulos/admin')); ?>
+			<?php echo CHtml::link('-------------------',array('#')); ?>
+			<?php echo CHtml::link('Localizacion',array('artLocalizacion/admin')); ?>
+			<?php echo CHtml::link('Stock',array('artStock/admin')); ?>
+			
+				
 		</span>
 	</span>
 
@@ -46,16 +58,10 @@
 	<span class="menuitem">
 		<a href="#">administración</a>
 		<span class="submenu">
-			<a href="#"> Personal</a><br>
-			<a href="#"> Crear</a><br>
-			<a href="#"> Buscar</a>
-			<a href="#"> Personal</a><br>
-			<a href="#"> Crear</a><br>
-			<a href="#"> Buscar</a>
-			<a href="#"> Personal</a><br>
-			<a href="#"> Crear</a><br>
-			<a href="#"> Crear</a><br>
-
+			<?php echo CHtml::link('GESTIÓN DE PERSONAL',array('personas/admin')); ?><br>
+			<?php echo CHtml::link('GESTIÓN DE TURNOS',array('turnos/admin')); ?><br>
+			<?php echo CHtml::link('GESTIÓN DE AREAS',array('areas/admin')); ?><br>
+			<?php echo CHtml::link('Gestión Empleados',array('personas/admin')); ?>
 		</span>
 	</span>
 	<span class="menuitem">

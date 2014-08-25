@@ -37,6 +37,6 @@ $this->menu=array(
 		'id_area_puesto',
 		'id_personas_info',
 		'id_turno',
-		'estatus',
+		'activo',
 	),
 )); ?>

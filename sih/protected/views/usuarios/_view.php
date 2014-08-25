@@ -13,6 +13,10 @@
 	<?php echo CHtml::encode($data->id_rol); ?>
 	<br />
 
+	<b><?php echo CHtml::encode($data->getAttributeLabel('id_persona')); ?>:</b>
+	<?php echo CHtml::encode($data->id_persona); ?>
+	<br />
+
 	<b><?php echo CHtml::encode($data->getAttributeLabel('usuario')); ?>:</b>
 	<?php echo CHtml::encode($data->usuario); ?>
 	<br />
@@ -29,9 +33,11 @@
 	<?php echo CHtml::encode($data->fecha_expiracion); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('estatus')); ?>:</b>
-	<?php echo CHtml::encode($data->estatus); ?>
+	<?php /*
+	<b><?php echo CHtml::encode($data->getAttributeLabel('activo')); ?>:</b>
+	<?php echo CHtml::encode($data->activo); ?>
 	<br />
 
+	*/ ?>
 
 </div>

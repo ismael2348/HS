@@ -24,7 +24,7 @@ class PersonasController extends Controller
 	 * This method is used by the 'accessControl' filter.
 	 * @return array access control rules
 	 */
-	public function accessRules()
+/*	public function accessRules()
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
@@ -40,11 +40,11 @@ class PersonasController extends Controller
 				'users'=>array('admin'),
 			),
 			array('deny',  // deny all users
-				'users'=>array('*'),
+				' '=>array('*'),
 			),
 		);
 	}
-
+*/
 	/**
 	 * Displays a particular model.
 	 * @param integer $id the ID of the model to be displayed
@@ -64,14 +64,24 @@ class PersonasController extends Controller
 	{
 		$model=new Personas;
 
+		$personasInfo = new PersonasInfo;
+
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['Personas']))
+		if(isset($_POST['Personas']) && isset($_POST['PersonasInfo']))
 		{
-			$model->attributes=$_POST['Personas'];
+			
+
+			$personasInfo->attributes=$_POST['PersonasInfo'];
+			if($personasInfo->save()){
+				$model->attributes=$_POST['Personas'];
+				$model->id_personas_info = $personasInfo->id;
+				$model->fecha_creacion = new CDbExpression('NOW()');
+
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+				$this->redirect(array('admin'));
+			}
 		}
 
 		$this->render('create',array(
@@ -86,8 +96,8 @@ class PersonasController extends Controller
 	 */
 	public function actionUpdate($id)
 	{
-		$model=$this->loadModel($id);
-
+		$model= $this->loadModel($id);
+		$personasInfo = PersonasInfo::model()->findByPk($model->id_personas_info);
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
@@ -99,7 +109,7 @@ class PersonasController extends Controller
 		}
 
 		$this->render('update',array(
-			'model'=>$model,
+			'model'=>$model, 'personasInfo'=>$personasInfo
 		));
 	}
 
@@ -122,10 +132,19 @@ class PersonasController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('Personas');
-		$this->render('index',array(
-			'dataProvider'=>$dataProvider,
-		));
+		$dataProvider=new CActiveDataProvider('Personas', array(
+        'criteria' => array(
+            'select' => array(
+                '`t`.*', 
+                '`pi`.`email` ',
+                '`pi`.`email2` '
+            ),
+            'join' => 'JOIN `personas_info` AS `pi` ON `pi`.`id` = `t`.`id_personas_info`',
+        )
+    ));
+	$this->render('index',array(
+		'dataProvider'=>$dataProvider,
+	));
 	}
 
 	/**
@@ -142,6 +161,9 @@ class PersonasController extends Controller
 			'model'=>$model,
 		));
 	}
+
+
+
 
 	/**
 	 * Returns the data model based on the primary key given in the GET variable.
@@ -170,4 +192,30 @@ class PersonasController extends Controller
 			Yii::app()->end();
 		}
 	}
+
+
+	public function turno($data,$row){
+	    return Turnos::model()->findByPk($data->id_turno)->nombre;
+	}
+
+	public function AreaPuesto($data,$row){
+		$AreasPuesto = AreasPuestos::model()->findByPk($data->id_area_puesto);
+	    return Puestos::model()->findByPk($AreasPuesto->id_puesto)->nombre." en ".Areas::model()->findByPk($AreasPuesto->id_area)->nombre;
+	}
+
+	function actionobtenerPersonas() {
+	  if (Yii::app()->request->isAjaxRequest&&!empty($_GET['term'])) {
+		$sql = 'SELECT p.id, CONCAT(p.nombres," ",p.ap_pat," ",p.ap_mat) as label FROM personas as p WHERE p.nombres LIKE :qterm OR p.ap_pat LIKE :qterm OR p.ap_mat LIKE :qterm';
+		
+		$sql .= ' ORDER BY ap_pat ASC';
+		$command = Yii::app()->db->createCommand($sql);
+		$qterm = $_GET['term'].'%';
+		$command->bindParam(":qterm", $qterm, PDO::PARAM_STR);
+		$result = $command->queryAll();
+		echo CJSON::encode($result); exit;
+	  } else {
+		return false;
+	  }
+	}
+
 }

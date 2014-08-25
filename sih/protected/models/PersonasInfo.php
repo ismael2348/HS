@@ -17,7 +17,7 @@
  * @property string $telefono2
  * @property string $celular
  * @property string $celular2
- * @property integer $estatus
+ * @property integer $activo
  *
  * The followings are the available model relations:
  * @property Personas[] $personases
@@ -40,14 +40,15 @@ class PersonasInfo extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('estatus', 'numerical', 'integerOnly'=>true),
+			array('calle_num, colonia, cp, municipio, estado, pais, email, telefono', 'required'),
+			array('activo', 'numerical', 'integerOnly'=>true),
 			array('calle_num, colonia, municipio, email, email2', 'length', 'max'=>100),
 			array('cp', 'length', 'max'=>10),
 			array('estado, pais', 'length', 'max'=>30),
 			array('telefono, telefono2, celular, celular2', 'length', 'max'=>15),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, calle_num, colonia, cp, municipio, estado, pais, email, email2, telefono, telefono2, celular, celular2, estatus', 'safe', 'on'=>'search'),
+			array('id, calle_num, colonia, cp, municipio, estado, pais, email, email2, telefono, telefono2, celular, celular2, activo', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -82,7 +83,7 @@ class PersonasInfo extends CActiveRecord
 			'telefono2' => 'Telefono2',
 			'celular' => 'Celular',
 			'celular2' => 'Celular2',
-			'estatus' => 'Estatus',
+			'activo' => 'Activo',
 		);
 	}
 
@@ -117,7 +118,7 @@ class PersonasInfo extends CActiveRecord
 		$criteria->compare('telefono2',$this->telefono2,true);
 		$criteria->compare('celular',$this->celular,true);
 		$criteria->compare('celular2',$this->celular2,true);
-		$criteria->compare('estatus',$this->estatus);
+		$criteria->compare('activo',$this->activo);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

@@ -1,3 +1,4 @@
+
 <?php
 /* @var $this AreasController */
 /* @var $model Areas */
@@ -46,7 +47,7 @@ $('.search-form form').submit(function(){
 				'buttons'=>array(
                     'add' => array(
                         'label'=>'Agregar Nuevo Puesto', 
-                        'url'=>"CHtml::normalizeUrl(array('areas/create', 'id'=>\$data->id))",
+                        'url'=>"CHtml::normalizeUrl(array('areasPuestos/create', 'id'=>\$data->id))",
                         'imageUrl'=>'images/add.png', // image URL of the button. If not set or false, a text link is used
                       //'options' => array('class'=>'add'), // HTML options for the button
                     ),

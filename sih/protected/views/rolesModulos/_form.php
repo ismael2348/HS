@@ -32,9 +32,20 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'estatus'); ?>
-		<?php echo $form->textField($model,'estatus'); ?>
-		<?php echo $form->error($model,'estatus'); ?>
+		<?php echo $form->labelEx($model,'activo'); ?>
+		<?php echo $form->textField($model,'activo'); ?>
+		<?php echo $form->error($model,'activo'); ?>
+	</div>
+
+	<div class="row">
+	Permisos:<br>
+	<label><input type="checkbox" name="ver" id="ver" value="1" /> VER</label><br/> 
+	<label><input type="checkbox" name="crear" id="crear" value="1" /> CREAR</label><br/>
+	<label><input type="checkbox" name="actualizar" id="actualizar" value="1" /> ACTUALIZAR</label><br/>
+	<label><input type="checkbox" name="borrar" id="borrar" value="1" /> BORRAR</label>
+		<?php /* echo $form->labelEx($model,'permisos'); ?>
+		<?php echo $form->textField($model,'permisos'); ?>
+		<?php echo $form->error($model,'permisos'); */ ?>
 	</div>
 
 	<div class="row buttons">

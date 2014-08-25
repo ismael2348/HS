@@ -24,6 +24,6 @@ $this->menu=array(
 		'id',
 		'id_area',
 		'id_puesto',
-		'estatus',
+		'activo',
 	),
 )); ?>

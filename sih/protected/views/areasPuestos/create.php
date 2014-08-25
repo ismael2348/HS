@@ -8,11 +8,10 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List AreasPuestos', 'url'=>array('index')),
-	array('label'=>'Manage AreasPuestos', 'url'=>array('admin')),
+	array('label'=>'Volver a áreas y puestos', 'url'=>array('index')),
 );
 ?>
 
-<h1>Create AreasPuestos</h1>
+<h1>Vinculación de puestos para <?php echo $areaNombre; ?></h1>
 
-<?php $this->renderPartial('_form', array('model'=>$model)); ?>
+<?php $this->renderPartial('_form', array('model'=>$model, 'puestos'=>$puestos)); ?>

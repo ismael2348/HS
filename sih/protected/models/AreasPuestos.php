@@ -7,12 +7,11 @@
  * @property integer $id
  * @property integer $id_area
  * @property integer $id_puesto
- * @property integer $estatus
+ * @property integer $activo
  *
  * The followings are the available model relations:
  * @property Areas $idArea
  * @property Puestos $idPuesto
- * @property Puestos $puesto
  * @property Personas[] $personases
  */
 class AreasPuestos extends CActiveRecord
@@ -34,10 +33,10 @@ class AreasPuestos extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('id_area, id_puesto', 'required'),
-			array('id_area, id_puesto, estatus', 'numerical', 'integerOnly'=>true),
+			array('id_area, id_puesto, activo', 'numerical', 'integerOnly'=>true),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, id_area, id_puesto, estatus', 'safe', 'on'=>'search'),
+			array('id, id_area, id_puesto, activo', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -64,7 +63,7 @@ class AreasPuestos extends CActiveRecord
 			'id' => 'ID',
 			'id_area' => 'Id Area',
 			'id_puesto' => 'Id Puesto',
-			'estatus' => 'Estatus',
+			'activo' => 'Activo',
 		);
 	}
 
@@ -89,7 +88,7 @@ class AreasPuestos extends CActiveRecord
 		$criteria->compare('id',$this->id);
 		$criteria->compare('id_area',$this->id_area);
 		$criteria->compare('id_puesto',$this->id_puesto);
-		$criteria->compare('estatus',$this->estatus);
+		$criteria->compare('activo',$this->activo);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

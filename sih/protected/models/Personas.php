@@ -20,17 +20,28 @@
  * @property integer $id_area_puesto
  * @property integer $id_personas_info
  * @property integer $id_turno
- * @property integer $estatus
+ * @property integer $activo
  *
  * The followings are the available model relations:
  * @property AsistenciaPersonal[] $asistenciaPersonals
+ * @property InventarioAsignado[] $inventarioAsignados
  * @property Nomina[] $nominas
  * @property AreasPuestos $idAreaPuesto
  * @property PersonasInfo $idPersonasInfo
  * @property Turnos $idTurno
+ * @property Usuarios[] $usuarioses
  */
 class Personas extends CActiveRecord
 {
+	//Variables de la tabla personasInfo 
+	public $email;
+	public $telefono;
+	public $celular;
+
+
+
+
+	
 	/**
 	 * @return string the associated database table name
 	 */
@@ -47,14 +58,13 @@ class Personas extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('id_area_puesto, id_personas_info, id_turno', 'required'),
-			array('id_area_puesto, id_personas_info, id_turno, estatus', 'numerical', 'integerOnly'=>true),
+			array('nombres, ap_pat, ap_mat, fecha_nac, nss, rfc, curp, sexo, estado_civil, escolaridad, fecha_ingreso, fecha_creacion, id_area_puesto, id_personas_info, id_turno', 'required'),
+			array('id_area_puesto, id_personas_info, id_turno, activo', 'numerical', 'integerOnly'=>true),
 			array('nombres, ap_pat, ap_mat, fecha_nac, nss, rfc, curp, escolaridad', 'length', 'max'=>100),
 			array('sexo, estado_civil', 'length', 'max'=>20),
-			array('fecha_ingreso, fecha_creacion', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, nombres, ap_pat, ap_mat, fecha_nac, nss, rfc, curp, sexo, estado_civil, escolaridad, fecha_ingreso, fecha_creacion, id_area_puesto, id_personas_info, id_turno, estatus', 'safe', 'on'=>'search'),
+			array('id, nombres, ap_pat, ap_mat, fecha_nac, nss, rfc, curp, sexo, estado_civil, escolaridad, fecha_ingreso, fecha_creacion, id_area_puesto, id_personas_info, id_turno, activo', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -67,10 +77,12 @@ class Personas extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'asistenciaPersonals' => array(self::HAS_MANY, 'AsistenciaPersonal', 'id_persona'),
+			'inventarioAsignados' => array(self::HAS_MANY, 'InventarioAsignado', 'id_encargado'),
 			'nominas' => array(self::HAS_MANY, 'Nomina', 'id_persona'),
 			'idAreaPuesto' => array(self::BELONGS_TO, 'AreasPuestos', 'id_area_puesto'),
 			'idPersonasInfo' => array(self::BELONGS_TO, 'PersonasInfo', 'id_personas_info'),
 			'idTurno' => array(self::BELONGS_TO, 'Turnos', 'id_turno'),
+			'usuarioses' => array(self::HAS_MANY, 'Usuarios', 'id_persona'),
 		);
 	}
 
@@ -96,7 +108,7 @@ class Personas extends CActiveRecord
 			'id_area_puesto' => 'Id Area Puesto',
 			'id_personas_info' => 'Id Personas Info',
 			'id_turno' => 'Id Turno',
-			'estatus' => 'Estatus',
+			'activo' => 'Activo',
 		);
 	}
 
@@ -134,7 +146,7 @@ class Personas extends CActiveRecord
 		$criteria->compare('id_area_puesto',$this->id_area_puesto);
 		$criteria->compare('id_personas_info',$this->id_personas_info);
 		$criteria->compare('id_turno',$this->id_turno);
-		$criteria->compare('estatus',$this->estatus);
+		$criteria->compare('activo',$this->activo);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

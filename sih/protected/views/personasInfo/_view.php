@@ -58,8 +58,8 @@
 	<?php echo CHtml::encode($data->celular2); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('estatus')); ?>:</b>
-	<?php echo CHtml::encode($data->estatus); ?>
+	<b><?php echo CHtml::encode($data->getAttributeLabel('activo')); ?>:</b>
+	<?php echo CHtml::encode($data->activo); ?>
 	<br />
 
 	*/ ?>

@@ -26,9 +26,9 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'estatus'); ?>
-		<?php echo $form->textField($model,'estatus'); ?>
-		<?php echo $form->error($model,'estatus'); ?>
+		<?php echo $form->labelEx($model,'activo'); ?>
+		<?php echo $form->textField($model,'activo'); ?>
+		<?php echo $form->error($model,'activo'); ?>
 	</div>
 
 	<div class="row buttons">

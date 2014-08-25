@@ -27,8 +27,13 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'estatus'); ?>
-		<?php echo $form->textField($model,'estatus'); ?>
+		<?php echo $form->label($model,'activo'); ?>
+		<?php echo $form->textField($model,'activo'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->label($model,'permisos'); ?>
+		<?php echo $form->textField($model,'permisos'); ?>
 	</div>
 
 	<div class="row buttons">

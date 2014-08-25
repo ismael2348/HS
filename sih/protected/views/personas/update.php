@@ -16,6 +16,6 @@ $this->menu=array(
 );
 ?>
 
-<h1>Update Personas <?php echo $model->id; ?></h1>
+<h1>Actualización de datos</h1>
 
-<?php $this->renderPartial('_form', array('model'=>$model)); ?>
+<?php $this->renderPartial('_form', array('model'=>$model, 'personasInfo'=>$personasInfo)); ?>

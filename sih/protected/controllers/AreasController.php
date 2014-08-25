@@ -70,9 +70,8 @@ class AreasController extends Controller
 		if(isset($_POST['Areas']))
 		{
 			$model->attributes=$_POST['Areas'];
-			$model->estatus = 1;
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+				$this->redirect(array('admin'));
 		}
 
 		$this->render('create',array(
@@ -96,7 +95,7 @@ class AreasController extends Controller
 		{
 			$model->attributes=$_POST['Areas'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+				$this->redirect(array('admin'));
 		}
 
 		$this->render('update',array(
@@ -188,12 +187,5 @@ class AreasController extends Controller
 		$areasString = substr($areasString, 0, -1);
 
 	     return nl2br($areasString);
-	}	
-
-
-
-
-
-
-
+	}
 }
