@@ -71,7 +71,7 @@ class UsuariosController extends Controller
 		{
 			$model->attributes=$_POST['Usuarios'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+				$this->redirect(array('admin'));
 		}
 
 		$this->render('create',array(
@@ -95,7 +95,7 @@ class UsuariosController extends Controller
 		{
 			$model->attributes=$_POST['Usuarios'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+				$this->redirect(array('admin'));
 		}
 
 		$this->render('update',array(
@@ -170,4 +170,26 @@ class UsuariosController extends Controller
 			Yii::app()->end();
 		}
 	}
+
+	public function nombreEmpleado($data,$row){
+
+	     $id = $data->id;
+	     //for eg.
+	     $details = Personas::model()->findAllBySql("SELECT concat(ap_pat,' ',ap_mat,' ',nombres) AS nombres from personas WHERE id=$id");
+
+
+	     return $details[0]["nombres"];
+	}
+
+	public function nombreRol($data,$row){
+
+	     $id = $data->id_rol;
+	     //for eg.
+	     $details = Roles::model()->findAllBySql("SELECT nombre from roles WHERE id=$id");
+
+
+	     return $details[0]["nombre"];
+	}
+
+
 }

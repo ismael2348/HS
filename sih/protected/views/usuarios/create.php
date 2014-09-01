@@ -8,11 +8,10 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Usuarios', 'url'=>array('index')),
-	array('label'=>'Manage Usuarios', 'url'=>array('admin')),
+	array('label'=>'Gestión de Usuarios', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Create Usuarios</h1>
+<h1>Registro de  Usuarios</h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

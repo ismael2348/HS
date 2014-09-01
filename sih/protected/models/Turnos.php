@@ -59,9 +59,9 @@ class Turnos extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'nombre' => 'Nombre',
-			'horaentrada' => 'Horaentrada',
-			'horasalida' => 'Horasalida',
+			'nombre' => 'Turno',
+			'horaentrada' => 'Hora de entrada',
+			'horasalida' => 'Hora de salida',
 			'activo' => 'Activo',
 		);
 	}

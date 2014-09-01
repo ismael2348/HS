@@ -13,6 +13,6 @@ $this->menu=array(
 );
 ?>
 
-<h1>Create ArtLocalizacion</h1>
+<h1>Registro de  ArtLocalizacion</h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

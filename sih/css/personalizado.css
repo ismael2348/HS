@@ -153,6 +153,7 @@ input[type="checkbox"]{
 
 	font-weight: bold;
 	line-height: 18px;
+	position:relative;
 
 }
 
@@ -161,3 +162,130 @@ input[type="checkbox"]{
 	margin-right:20px;
 	float:left;
 }
+
+.iconoFormas{
+	height:12px;
+	width:12px;
+	border-radius: 2px;
+
+
+}
+
+.notas:hover{
+	color:#205363;
+	cursor:pointer;
+	font-weight: bold;
+}
+
+.notas{
+	border:0px solid red;
+	color:#3B8EA9;
+	
+	display: inline-block;
+	font-size: .8em;
+}
+
+.oculto{
+	display: none;
+}
+
+select{
+	height:29px;
+}
+
+
+.botonAccionAdd{
+	font-size:12px;
+	text-align:right;
+	background-position:0 2px;
+	background-image:url('../images/agregar.png');
+	background-size: 40px auto;
+	background-repeat:no-repeat;
+	background-color:#3B8EA9;
+	color:white;
+	font-weight:bold;
+	width:110px;
+	height:45px;
+	padding:5px;
+	border:3px solid white;
+	border-radius:3px;
+	display:inline-block;
+	box-shadow: 0px 0px 2px 0px rgba(50, 50, 50, 0.40);
+}
+
+.botonAccionAdd:hover{
+	cursor: pointer;
+	box-shadow: 0px 0px 2px 0px rgba(50, 50, 50, 0.80);
+	
+
+ }
+
+ .botonAccionAdd:active{
+box-shadow: inset 1px 1px 2px 0px rgba(50, 50, 50, 0.75);
+ }
+
+ h1{
+ 	text-transform: uppercase;
+ }
+
+
+ .lista{
+ 	width:450px;
+ 	float:left;
+ 	height:100vh;
+ }
+
+ .listaItem{
+ 	background-color: #F4F4F4;
+ 	font-size: .9em;
+ 	display: inline-block;
+ 	width:100%;
+ 	border:1px solid #ccc;
+ 	padding:5px;
+ 	box-shadow: 1px 1px 2px 0px rgba(50, 50, 50, 0.43);
+ 	margin:5px 0;
+ }
+
+.listaItem:hover{
+	cursor: pointer;
+	box-shadow: 1px 2px 2px 0px rgba(50, 50, 50, 0.80);
+	color:black;
+}
+
+.incidenteWrapper{
+	overflow: hidden;
+ 	width:810px;
+ 	float:left;
+ 	border:0px solid #ccc;
+ 	margin-left:20px;
+ 	min-height:400px;
+}
+
+ .incidente{
+ 	position: relative;
+ 	min-height: 450px;
+ 	height: 100%;
+ 	float:left;
+	width:55%;
+	border:1px solid #ccc;
+ 	padding:5px;
+ 	background-color: #F4F4F4;
+ 	box-shadow: 1px 1px 2px 0px rgba(50, 50, 50, 0.43);
+ 	z-index: 10;
+ 	text-align: justify;
+ }
+
+ .seguimientos{
+ 	width: 45%;
+ 	float:left;
+ 	margin-left:-2px;
+ 	border:0px solid #ccc;
+ 	text-align: justify;
+  	
+ }
+ .seguimientos > .listaItem{
+ 	padding-left:20px;
+ 	background-color: #F4F4F4;
+ 	box-shadow: none;
+
+ }

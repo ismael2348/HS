@@ -13,6 +13,6 @@ $this->menu=array(
 );
 ?>
 
-<h1>Create Modulos</h1>
+<h1>Registro de  Modulos</h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

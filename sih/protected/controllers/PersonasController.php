@@ -66,18 +66,23 @@ class PersonasController extends Controller
 
 		$personasInfo = new PersonasInfo;
 
+		$turnos = Turnos::model()->findAll();
+		$areas = Areas::model()->findAll();
+
 		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
+		 //$this->performAjaxValidation($model);
 
 		if(isset($_POST['Personas']) && isset($_POST['PersonasInfo']))
 		{
 			
 
 			$personasInfo->attributes=$_POST['PersonasInfo'];
+
 			if($personasInfo->save()){
 				$model->attributes=$_POST['Personas'];
 				$model->id_personas_info = $personasInfo->id;
 				$model->fecha_creacion = new CDbExpression('NOW()');
+				$model->fecha_ingreso = new CDbExpression('NOW()');
 
 			if($model->save())
 				$this->redirect(array('admin'));
@@ -85,7 +90,7 @@ class PersonasController extends Controller
 		}
 
 		$this->render('create',array(
-			'model'=>$model,
+			'model'=>$model, 'personasInfo'=>$personasInfo, 'turnos'=>$turnos, 'areas'=>$areas,
 		));
 	}
 
@@ -98,18 +103,30 @@ class PersonasController extends Controller
 	{
 		$model= $this->loadModel($id);
 		$personasInfo = PersonasInfo::model()->findByPk($model->id_personas_info);
+		$turnos = Turnos::model()->findAll();
+		$areas = Areas::model()->findAll();
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['Personas']))
+		if(isset($_POST['Personas']) && isset($_POST['PersonasInfo']))
 		{
-			$model->attributes=$_POST['Personas'];
+			
+
+			$personasInfo->attributes=$_POST['PersonasInfo'];
+
+			if($personasInfo->save()){
+				$model->attributes=$_POST['Personas'];
+				$model->id_personas_info = $personasInfo->id;
+				$model->fecha_creacion = new CDbExpression('NOW()');
+				$model->fecha_ingreso = new CDbExpression('NOW()');
+
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+				$this->redirect(array('admin'));
+			}
 		}
 
 		$this->render('update',array(
-			'model'=>$model, 'personasInfo'=>$personasInfo
+			'model'=>$model, 'personasInfo'=>$personasInfo, 'turnos'=>$turnos, 'areas'=>$areas,
 		));
 	}
 

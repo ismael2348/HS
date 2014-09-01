@@ -15,48 +15,51 @@
 	'enableAjaxValidation'=>false,
 )); ?>
 
-	<p class="note">Fields with <span class="required">*</span> are required.</p>
+	<p class="note">Los campos marcados con <span class="required">*</span> son obligatorios.</p>
 
 	<?php echo $form->errorSummary($model); 
 
+?>
 
 
-
-
-$this->widget('ext.MyAutoComplete', array(
-    'model'=>$model,
-    'attribute'=>'id_persona',
-    'name'=>'persona_autocomplete',
-    //'id'=>'Peticiones_para',
-    'source'=>$this->createUrl('personas/obtenerPersonas'),  // Controller/Action path for action we created in step 4.
-    // additional javascript options for the autocomplete plugin
-    'options'=>array(
-        'minLength'=>'0',
+<div class="row">
+Nombre del empleado:<br>
+<?php
+	$this->widget('ext.MyAutoComplete', array(
+	    'model'=>$model,
+	    'attribute'=>'id_persona',
+	    'name'=>'persona_autocomplete',
+	    //'id'=>'Peticiones_para',
+	    'source'=>$this->createUrl('personas/obtenerPersonas'),  // Controller/Action path for action we created in step 4.
+	    // additional javascript options for the autocomplete plugin
+	    'options'=>array(
+	        'minLength'=>'0',
     ),
-
 	));
+?>
+</div>
+
+
+<div class="row">
+Rol:<br>
+<?php
+	$this->widget('ext.MyAutoComplete', array(
+	    'model'=>$model,
+	    'attribute'=>'id_rol',
+	    'name'=>'rol_autocomplete',
+	    //'id'=>'Peticiones_para',
+	    'source'=>$this->createUrl('roles/obtenerRoles'),  // Controller/Action path for action we created in step 4.
+	    // additional javascript options for the autocomplete plugin
+	    'options'=>array(
+	        'minLength'=>'0',
+    ),
+	));
+?>
+</div>
 
 
 
 
-
-	?>
-
-
-
-
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'id_rol'); ?>
-		<?php echo $form->textField($model,'id_rol'); ?>
-		<?php echo $form->error($model,'id_rol'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'id_persona'); ?>
-		<?php echo $form->textField($model,'id_persona'); ?>
-		<?php echo $form->error($model,'id_persona'); ?>
-	</div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'usuario'); ?>
@@ -82,14 +85,9 @@ $this->widget('ext.MyAutoComplete', array(
 		<?php echo $form->error($model,'fecha_expiracion'); ?>
 	</div>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'activo'); ?>
-		<?php echo $form->textField($model,'activo'); ?>
-		<?php echo $form->error($model,'activo'); ?>
-	</div>
 
 	<div class="row buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
+		<?php echo CHtml::submitButton($model->isNewRecord ? 'Registrar' : 'Guardar'); ?>
 	</div>
 
 <?php $this->endWidget(); ?>

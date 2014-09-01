@@ -8,8 +8,7 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Usuarios', 'url'=>array('index')),
-	array('label'=>'Create Usuarios', 'url'=>array('create')),
+	array('label'=>'Registrar Usuario', 'url'=>array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -26,37 +25,32 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Manage Usuarioses</h1>
+<h1>Gestión de Usuarios</h1>
 
-<p>
-You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>
-or <b>=</b>) at the beginning of each of your search values to specify how the comparison should be done.
-</p>
-
-<?php echo CHtml::link('Advanced Search','#',array('class'=>'search-button')); ?>
-<div class="search-form" style="display:none">
-<?php $this->renderPartial('_search',array(
-	'model'=>$model,
-)); ?>
-</div><!-- search-form -->
 
 <?php $this->widget('zii.widgets.grid.CGridView', array(
 	'id'=>'usuarios-grid',
 	'dataProvider'=>$model->search(),
-	'filter'=>$model,
+//	'filter'=>$model,
 	'columns'=>array(
-		'id',
-		'id_rol',
-		'id_persona',
-		'usuario',
-		'contrasena',
-		'fecha_registro',
-		/*
-		'fecha_expiracion',
-		'activo',
-		*/
 		array(
-			'class'=>'CButtonColumn',
+			'class'=>'CButtonColumn', 'template'=>'{delete} {update} {view}','header'=>'<b>Acciones</b>',//'htmlOptions'=>array('width'=>'90px'),
 		),
+		
+		array(
+            'header' => '<b>Nombre del empleado</b>',
+            'value' => array($this,'nombreEmpleado'),'type'=>'raw'
+        ),
+		'usuario',
+		//'id_rol',
+		array(
+            'header' => '<b>Rol</b>',
+            'value' => array($this,'nombreRol'),'type'=>'raw'
+        ),
+	//	'id_persona',
+
+	//	'contrasena',
+		'fecha_registro',
+		'fecha_expiracion',
 	),
 )); ?>

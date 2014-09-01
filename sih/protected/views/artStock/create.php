@@ -13,6 +13,6 @@ $this->menu=array(
 );
 ?>
 
-<h1>Create ArtStock</h1>
+<h1>Registro de  ArtStock</h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

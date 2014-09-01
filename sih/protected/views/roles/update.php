@@ -9,13 +9,11 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Roles', 'url'=>array('index')),
-	array('label'=>'Create Roles', 'url'=>array('create')),
-	array('label'=>'View Roles', 'url'=>array('view', 'id'=>$model->id)),
-	array('label'=>'Manage Roles', 'url'=>array('admin')),
+	array('label'=>'Registrar Rol', 'url'=>array('create')),
+	array('label'=>'Gestión de Roles', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Update Roles <?php echo $model->id; ?></h1>
+<h1>Actualización de Rol</h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

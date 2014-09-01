@@ -2,15 +2,7 @@
 /* @var $this PersonasController */
 /* @var $model Personas */
 
-$this->breadcrumbs=array(
-	'Personases'=>array('index'),
-	'Manage',
-);
 
-$this->menu=array(
-	array('label'=>'List Personas', 'url'=>array('index')),
-	array('label'=>'Create Personas', 'url'=>array('create')),
-);
 
 Yii::app()->clientScript->registerScript('search', "
 $('.search-button').click(function(){
@@ -27,24 +19,7 @@ $('.search-form form').submit(function(){
 ?>
 
 <h1>Gestión de Empleados</h1>
-
-<p>
-You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>
-or <b>=</b>) at the beginning of each of your search values to specify how the comparison should be done.
-</p>
-
-
-
-<?php 
-
-
-
-echo CHtml::link('Advanced Search','#',array('class'=>'search-button')); ?>
-<div class="search-form" style="display:none">
-<?php $this->renderPartial('_search',array(
-	'model'=>$model,
-)); ?>
-</div><!-- search-form -->
+<?php echo CHtml::link('<span class="botonAccionAdd">Registrar<br>empleado</span>',array('personas/create')); ?>
 
 <?php $this->widget('zii.widgets.grid.CGridView', array(
 	'id'=>'personas-grid',
@@ -72,18 +47,18 @@ echo CHtml::link('Advanced Search','#',array('class'=>'search-button')); ?>
 		'nss',
 		array(
             'header' => '<b>Nombre completo</b>',
-            'value' => '$data->ap_pat." ".$data->ap_mat."".$data->nombres'
+            'value' => '$data->ap_pat." ".$data->ap_mat." ".$data->nombres'
         ),
 		//'nombres',
 		//'ap_pat',
 		//'ap_mat',
 		'fecha_nac',
 		array(
-            'header' => '<b>Correo Electronico</b>',
+            'header' => '<b>Correo Electrónico</b>',
             'value' => '$data->idPersonasInfo["email"]'
         ),
 		array(
-            'header' => '<b>Télefono</b>',
+            'header' => '<b>Teléfono</b>',
             'value' => '$data->idPersonasInfo["telefono"]'
         ),
 		array(

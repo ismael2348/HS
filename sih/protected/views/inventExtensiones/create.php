@@ -13,6 +13,6 @@ $this->menu=array(
 );
 ?>
 
-<h1>Create InventExtensiones</h1>
+<h1>Registro de  InventExtensiones</h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model,'InventIp'=>$InventIp)); ?>

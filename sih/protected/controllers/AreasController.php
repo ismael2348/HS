@@ -24,7 +24,7 @@ class AreasController extends Controller
 	 * This method is used by the 'accessControl' filter.
 	 * @return array access control rules
 	 */
-	public function accessRules()
+	/*public function accessRules()
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
@@ -44,7 +44,7 @@ class AreasController extends Controller
 			),
 		);
 	}
-
+*/
 	/**
 	 * Displays a particular model.
 	 * @param integer $id the ID of the model to be displayed
@@ -171,6 +171,22 @@ class AreasController extends Controller
 		}
 	}
 
+
+
+	function actionobtenerAreas() {
+	  if (Yii::app()->request->isAjaxRequest&&!empty($_GET['term'])) {
+		$sql = 'SELECT id, nombre as label FROM areas WHERE nombre LIKE :qterm ';
+		
+		$sql .= ' ORDER BY nombre ASC';
+		$command = Yii::app()->db->createCommand($sql);
+		$qterm = $_GET['term'].'%';
+		$command->bindParam(":qterm", $qterm, PDO::PARAM_STR);
+		$result = $command->queryAll();
+		echo CJSON::encode($result); exit;
+	  } else {
+		return false;
+	  }
+	}
 
 	public function puestosRelacionados($data,$row){
 

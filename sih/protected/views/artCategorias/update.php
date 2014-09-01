@@ -16,6 +16,6 @@ $this->menu=array(
 );
 ?>
 
-<h1>Update ArtCategorias <?php echo $model->id; ?></h1>
+<h1>Actualización de  ArtCategorias <?php echo $model->id; ?></h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

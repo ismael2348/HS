@@ -70,12 +70,12 @@ class Usuarios extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'id_rol' => 'Id Rol',
-			'id_persona' => 'Id Persona',
+			'id_rol' => 'Rol',
+			'id_persona' => 'Nombre del Empleado',
 			'usuario' => 'Usuario',
-			'contrasena' => 'Contrasena',
+			'contrasena' => 'Contraseña',
 			'fecha_registro' => 'Fecha Registro',
-			'fecha_expiracion' => 'Fecha Expiracion',
+			'fecha_expiracion' => 'Fecha Expiración',
 			'activo' => 'Activo',
 		);
 	}
@@ -122,4 +122,13 @@ class Usuarios extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+
+	protected function afterFind()
+    {
+        // convert to display format
+        $this->fecha_registro = DateTime::createFromFormat('Y-m-d H:i:s', $this->fecha_registro)->format('d-m-Y');
+        $this->fecha_expiracion = DateTime::createFromFormat('Y-m-d H:i:s', $this->fecha_expiracion)->format('d-m-Y');
+
+        parent::afterFind();
+    }
 }

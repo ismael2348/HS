@@ -24,7 +24,7 @@ class RolesController extends Controller
 	 * This method is used by the 'accessControl' filter.
 	 * @return array access control rules
 	 */
-	public function accessRules()
+/*	public function accessRules()
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
@@ -43,7 +43,7 @@ class RolesController extends Controller
 				'users'=>array('*'),
 			),
 		);
-	}
+	}*/
 
 	/**
 	 * Displays a particular model.
@@ -71,7 +71,7 @@ class RolesController extends Controller
 		{
 			$model->attributes=$_POST['Roles'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+				$this->redirect(array('admin'));
 		}
 
 		$this->render('create',array(
@@ -95,7 +95,7 @@ class RolesController extends Controller
 		{
 			$model->attributes=$_POST['Roles'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+				$this->redirect(array('admin'));
 		}
 
 		$this->render('update',array(
@@ -170,4 +170,21 @@ class RolesController extends Controller
 			Yii::app()->end();
 		}
 	}
+
+	function actionobtenerRoles() {
+	  if (Yii::app()->request->isAjaxRequest&&!empty($_GET['term'])) {
+		$sql = 'SELECT r.id, r.nombre as label FROM roles as r  WHERE r.nombre LIKE :qterm ';
+		
+		$sql .= ' ORDER BY nombre ASC';
+		$command = Yii::app()->db->createCommand($sql);
+		$qterm = $_GET['term'].'%';
+		$command->bindParam(":qterm", $qterm, PDO::PARAM_STR);
+		$result = $command->queryAll();
+			echo CJSON::encode($result); 
+		exit;
+	  } else {
+		return false;
+	  }
+	}
+
 }

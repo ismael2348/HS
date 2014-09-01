@@ -71,18 +71,18 @@ class PersonasInfo extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'calle_num' => 'Calle Num',
+			'calle_num' => 'Calle y número',
 			'colonia' => 'Colonia',
-			'cp' => 'Cp',
+			'cp' => 'Código Postal',
 			'municipio' => 'Municipio',
 			'estado' => 'Estado',
-			'pais' => 'Pais',
+			'pais' => 'País',
 			'email' => 'Email',
-			'email2' => 'Email2',
-			'telefono' => 'Telefono',
-			'telefono2' => 'Telefono2',
+			'email2' => 'Email 2',
+			'telefono' => 'Teléfono',
+			'telefono2' => 'Telefono 2',
 			'celular' => 'Celular',
-			'celular2' => 'Celular2',
+			'celular2' => 'Celular 2',
 			'activo' => 'Activo',
 		);
 	}
